@@ -1,0 +1,27 @@
+# vim: filetype=gitignore
+# This file is used by fd and rg (Both have .git and node_module applied in bash_aliases)
+
+.cache
+.cargo/
+.dotnet
+.fonts
+.gnupg
+.gvm/
+.local
+.npm
+.nvm
+.oh-my-bash
+.pki
+.quokka
+.rustup/
+.vscode
+.wallaby
+Code/
+dconf/
+enchant/
+evolution/
+go/
+google-chrome/
+ibus/
+pulse/
+snap/

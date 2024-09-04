@@ -1,0 +1,30 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = kr40.git@gmail.com
+	name = kr40
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --diff-so-fancy
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[delta]
+    line-numbers = true
+[init]
+	defaultBranch = main

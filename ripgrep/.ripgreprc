@@ -1,0 +1,12 @@
+--ignore-file=/home/kr40/.config/dotfiles/ignore
+
+--max-columns=120
+--max-columns-preview
+
+--hidden
+--glob=!.git/*
+--glob=!node_modules/*
+
+--smart-case
+
+--follow

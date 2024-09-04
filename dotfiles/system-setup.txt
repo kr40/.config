@@ -1,0 +1,54 @@
+--> Update and Upgrade
+--> Install required packages - zcat /var/log/apt/history.log.*.gz | cat - /var/log/apt/history.log | grep " install "
+
+sudo apt install git curl gh lua5.4 neofetch cmatrix lolcat htop ubuntu-restricted-extras nala exa fzf ripgrep dconf-editor tree zoxide golang-go bat tmux ranger liblua5.4-dev fd-find ninja-build gettext cmake unzip python3-dev python3-pip python3-venv python3-setuptools dmidecode libgirepository1.0-dev libcairo2-dev libgtk-3-dev gcc gnome-tweaks vlc wl-clipboard net-tools dconf-cli pipx rlwrap shellcheck httpie jq clang-format jc jo bison
+
+--> Install Wezterm - .deb file
+--> Install Chrome - .deb file
+--> Install oh-my-bash - bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+--> Install dotfiles from github - https://github.com/kr40/dotfiles
+--> Install pacstall - sudo bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
+--> Install Neovim - via pacstall
+--> Install nvm - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+--> Install LazyGit
+--> Install Delta - via pacstall
+--> Install gvm - bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+--> Install Rust - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+--> Proper Symlink for fd - sudo ln -s $(which fdfind) /bin/fd
+
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+
+--> Set minimize to dock - gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+--> Install auto-cpufreq
+
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
+sudo auto-cpufreq --install
+sudo auto-cpufreq --stats
+
+--> Install nvim and tmux configs from github - git clone https://github.com/kr40/nvim.git https://github.com/kr40/tmux.git
+--> Install TPM - git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+--> Setup git config
+
+git config --global user.name "kr40"
+git config --global user.email "kr40.git@gmail.com"
+
+--> Install nerd-fonts - bash -c  "$(curl -fsSL https://raw.githubusercontent.com/officialrajdeepsingh/nerd-fonts-installer/main/install.sh)" 
+--> Change Default Terminal to Wezterm
+
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/wezterm 1
+sudo update-alternatives --config x-terminal-emulator
+
+--> Set caps lock to escape - dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+--> Create a scripts folder on Desktop
+--> Install cht.sh - curl -s https://cht.sh/:cht.sh | sudo tee $HOME/.local/bin/cht.sh && sudo chmod +x $HOME/.local/bin/cht.sh
+--> Setup Lua properly - sudo update-alternatives --config lua-compiler, sudo update-alternatives --config lua-interpreter 
+--> Install luarocks - $ wget https://luarocks.org/releases/luarocks-3.9.2.tar.gz
+                       $ tar zxpf luarocks-3.9.2.tar.gz
+                       $ cd luarocks-3.9.2
+                       $ ./configure --lua-version=5.4 && make && sudo make install
+--> Install npm packages -  eslint,fkill-cli,how2,live-server,neovim,prettier,npm-check-updates,stylelint
+--> Hide untracked files in git status (For .config git setup) - git config --local status.showUntrackedFiles no 
